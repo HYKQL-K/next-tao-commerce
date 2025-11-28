@@ -96,7 +96,7 @@
 
 ### 2. 克隆与安装
 ```bash
-git clone [https://github.com/HYKQL-K/next-tao-commerce.git](https://github.com/HYKQL-K/next-tao-commerce.git)
+git clone [https://github.com/HYKQL-K/next-tao-commerce.git]
 cd next-tao-commerce
 npm install
 # 或者 pnpm install
@@ -108,7 +108,7 @@ npm install
 npm run dev
 ```
 
-打开浏览器访问 [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) 即可看到效果。
+打开浏览器访问 [http://localhost:3000] 即可看到效果。
 
 -----
 
@@ -167,4 +167,4 @@ src/
 
 <div align="center"\>
 <sub\>Made with ❤️ by <a href="https://github.com/HYKQL-K">HYKQL-K</a\><sub\>
-</div\>
+<div\>
