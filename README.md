@@ -18,9 +18,7 @@
     <a href="https://github.com/HYKQL-K/next-tao-commerce/issues">
       <img src="https://img.shields.io/github/issues/HYKQL-K/next-tao-commerce?style=for-the-badge&logo=github&color=black" alt="GitHub issues" />
     </a>
-    <a href="https://github.com/HYKQL-K/next-tao-commerce/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/HYKQL-K/next-tao-commerce?style=for-the-badge&logo=law&color=blue" alt="License" />
-    </a>
+   
   </p>
 
   <p>
