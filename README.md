@@ -1,121 +1,170 @@
-# TaoShop - 类似淘宝的电商平台 MVP
+<div align="center">
+  <h1 style="font-size: 3rem; margin-bottom: 1rem;">🛒 Next-Tao-Commerce</h1>
 
-TaoShop 是一个功能完整的 B2C 电商平台 MVP，采用现代 Web 开发技术栈构建，具有清晰的代码结构和良好的可扩展性。
+  <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+    A <b>Pixel-Perfect</b> e-commerce MVP inspired by Taobao.<br>
+    Built for performance, designed for scale.
+  </p>
 
-## 技术栈
+  <br />
 
-- **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS
-- **UI Components**: Shadcn/ui, Lucide Icons
-- **State Management**: Zustand
-- **Backend**: Next.js API Routes (Server Actions)
-- **Database**: Prisma ORM (支持 PostgreSQL) + Mock Data
+  <p>
+    <a href="https://github.com/HYKQL-K/next-tao-commerce/stargazers">
+      <img src="https://img.shields.io/github/stars/HYKQL-K/next-tao-commerce?style=for-the-badge&logo=starship&color=FF5000" alt="GitHub stars" />
+    </a>
+    <a href="https://github.com/HYKQL-K/next-tao-commerce/network/members">
+      <img src="https://img.shields.io/github/forks/HYKQL-K/next-tao-commerce?style=for-the-badge&logo=git&color=orange" alt="GitHub forks" />
+    </a>
+    <a href="https://github.com/HYKQL-K/next-tao-commerce/issues">
+      <img src="https://img.shields.io/github/issues/HYKQL-K/next-tao-commerce?style=for-the-badge&logo=github&color=black" alt="GitHub issues" />
+    </a>
+    <a href="https://github.com/HYKQL-K/next-tao-commerce/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/HYKQL-K/next-tao-commerce?style=for-the-badge&logo=law&color=blue" alt="License" />
+    </a>
+  </p>
 
-## 核心功能
+  <p>
+    <a href="#quick-start">🚀 快速开始</a> • 
+    <a href="#tech-stack">🛠️ 技术架构</a> • 
+    <a href="#features">✨ 核心亮点</a> • 
+    <a href="#roadmap">🗺️ 路线图</a>
+  </p>
+</div>
 
-### 1. 首页
-- 顶部导航栏（Sticky Header）：Logo、搜索框、用户中心、购物车
-- 轮播图（Hero Slider）
-- 商品瀑布流（Product Feed）：猜你喜欢，双列布局
+<br />
 
-### 2. 商品详情页
-- 图片画廊（支持缩略图切换）
-- 商品信息：标题、价格、销量、店铺名
-- SKU 选择器：颜色/尺寸选择，动态更新价格和库存
-- 操作栏：立即购买、加入购物车、收藏
-- 商品详情：富文本描述、评价列表、店铺信息
+---
 
-### 3. 购物车与结算
-- 购物车：店铺维度分组
-- 全选/单选逻辑，实时计算总价
-- 数量增减器
+## 📖 关于项目 (Introduction)
 
-### 4. 用户中心
-- 买家视角：订单列表、收货地址管理
-- 卖家视角：商品发布表单、订单管理面板
+**Next-Tao-Commerce** 是一个基于 **Next.js 14 App Router** 的全栈电商实战项目。它不仅仅是一个简单的商城，更是一次对**复杂业务逻辑**的深度探索。
 
-## 数据模型
+我们复刻了淘宝/天猫的核心体验：从**SKU 动态组合算法**到**店铺维度的购物车结算**，每一个交互细节都力求完美。对于想要掌握 Modern Web 全栈开发的同学，这是一个绝佳的参考案例。
 
-- **User**: id, role (buyer/seller), name, avatar
-- **Product**: id, title, description, price, stock, categoryId, shopId
-- **Variant (SKU)**: id, productId, size, color, specificPrice
-- **Order**: id, userId, totalAmount, status (pending/paid/shipped), items (JSON)
+---
 
-## 设计规范
+<span id="tech-stack"></span>
 
-- **色彩体系**：主色调 #FF5000（淘宝橙红色），背景色 #F5F5F5
-- **响应式**：Mobile First，支持桌面端多栏布局
-- **交互细节**：按钮 hover 效果，加载骨架屏动画
+## 🛠️ 技术架构 (Tech Stack)
 
-## 快速开始
+我们选用了目前 React 生态中最能打的组合，兼顾开发体验与运行性能：
 
-### 安装依赖
+### 🎨 Frontend & UI
+* **Framework**: [Next.js 14](https://nextjs.org/) (App Router, Server Components)
+* **Language**: [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
+* **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+* **Components**: [Shadcn/ui](https://ui.shadcn.com/) + Lucide Icons
+* **Motion**: Tailwind Animate / Framer Motion (Optional)
 
+### ⚙️ Backend & Data
+* **API**: Next.js Server Actions (无需独立后端)
+* **Database**: PostgreSQL (Via Prisma)
+* **ORM**: [Prisma](https://www.prisma.io/)
+* **State**: [Zustand](https://github.com/pmndrs/zustand) (Global Store)
+
+---
+
+<span id="features"></span>
+
+## ✨ 核心亮点 (Key Features)
+
+### 🛒 深度还原的交易流程
+- [x] **智能 SKU 选择器**: 
+    - 自动判断 `颜色` + `尺寸` 组合的库存状态。
+    - 无货选项自动置灰/禁用 (Visual Disable)。
+- [x] **店铺级购物车**: 
+    - 商品按 `ShopID` 自动分组。
+    - 支持店铺维度的全选/反选，以及跨店总价计算。
+
+### ⚡ 极致的性能优化
+- [x] **瀑布流加载**: 基于 `IntersectionObserver` 的无限滚动。
+- [x] **骨架屏 (Skeleton)**: 数据加载时的优雅过渡。
+- [x] **图像优化**: 使用 Next/Image 实现自适应加载与懒加载。
+
+---
+
+<span id="quick-start"></span>
+
+## 🚀 快速开始 (Quick Start)
+
+本地运行只需三步：
+
+### 1. 环境准备
+确保你的本地环境满足：
+- Node.js >= 18.17.0
+- 包管理器 (npm / pnpm / yarn)
+
+### 2. 克隆与安装
 ```bash
+git clone [https://github.com/HYKQL-K/next-tao-commerce.git](https://github.com/HYKQL-K/next-tao-commerce.git)
+cd next-tao-commerce
 npm install
-```
+# 或者 pnpm install
+````
 
-### 启动开发服务器
+### 3\. 启动开发服务器
 
 ```bash
 npm run dev
 ```
 
-访问 http://localhost:3000
+打开浏览器访问 [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) 即可看到效果。
 
-### 构建生产版本
+-----
 
-```bash
-npm run build
-npm run start
+## 📂 目录结构 (Directory)
+
+清晰的分层架构，方便二次开发：
+
+```text
+src/
+├── app/                 # Next.js 路由入口
+│   ├── (main)/          # 主布局组 (Header+Footer)
+│   ├── (auth)/          # 认证布局组 (Login/Register)
+│   └── api/             # API Routes
+├── components/          # 组件库
+│   ├── ui/              # Shadcn 基础组件
+│   ├── business/        # 业务组件 (ProductCard, SKUSelector)
+│   └── layout/          # 布局组件
+├── lib/                 # 工具函数 (Utils, Constants)
+├── store/               # Zustand 状态管理
+├── types/               # TypeScript 类型定义
+└── prisma/              # 数据库 Schema
 ```
 
-## 项目结构
+-----
 
-```
-.
-├── src/
-│   ├── app/                # Next.js App Router
-│   │   ├── layout.tsx      # 根布局
-│   │   ├── page.tsx        # 首页
-│   │   ├── product/        # 商品详情页
-│   │   ├── cart/           # 购物车页
-│   │   └── profile/        # 用户中心页
-│   ├── components/         # UI 组件
-│   │   ├── ui/             # 通用 UI 组件
-│   │   ├── Header.tsx      # 头部组件
-│   │   ├── Layout.tsx      # 页面布局
-│   │   ├── ProductCard.tsx # 商品卡片
-│   │   └── SearchBar.tsx   # 搜索框
-│   ├── store/              # Zustand 状态管理
-│   │   ├── cartStore.ts    # 购物车状态
-│   │   └── userStore.ts    # 用户状态
-│   ├── lib/                # 工具函数
-│   │   ├── utils.ts        # 通用工具
-│   │   └── mockData.ts     # 模拟数据
-│   └── types/              # TypeScript 类型定义
-├── package.json
-├── tsconfig.json
-├── tailwind.config.ts
-└── postcss.config.js
-```
+<span id="roadmap"></span>
 
-## 扩展开发
+## 🗺️ 路线图 (Roadmap)
 
-### 切换到真实数据库
+  - [x] **MVP 阶段**: 首页、详情页、购物车基础流程跑通。
+  - [ ] **用户中心**: 订单状态流转 (待付款 -\> 待发货 -\> 待收货)。
+  - [ ] **支付对接**: 模拟支付宝/微信支付流程。
+  - [ ] **卖家后台**: 简单的商品发布与上下架管理。
+  - [ ] **性能优化**: 引入 Redis 缓存热点商品数据。
 
-1. 安装 Prisma CLI：`npm install -D prisma`
-2. 配置数据库连接字符串
-3. 运行迁移：`npx prisma migrate dev`
-4. 更新数据获取逻辑，使用 Prisma Client
+-----
 
-### 添加新页面
+## 🤝 贡献 (Contributing)
 
-在 `src/app/` 目录下创建新的文件夹和 `page.tsx` 文件。
+如果你觉得这个项目对你有帮助，欢迎 **Star ⭐️** 支持一下！
 
-### 添加新组件
+同时也非常欢迎提交 PR：
 
-在 `src/components/` 目录下创建新的组件文件。
+1.  Fork 本仓库
+2.  新建 Feat\_xxx 分支
+3.  提交代码
+4.  新建 Pull Request
 
-## License
+-----
 
-MIT
+## 📄 许可证 (License)
+
+本项目基于 MIT 协议开源。详见 [LICENSE](https://www.google.com/search?q=./LICENSE) 文件。
+
+-----
+
+<div align="center"\>
+<sub\>Made with ❤️ by <a href="https://github.com/HYKQL-K">HYKQL-K</a\><sub\>
+</div\>
